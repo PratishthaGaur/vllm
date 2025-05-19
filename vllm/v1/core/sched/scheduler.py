@@ -32,23 +32,6 @@ from vllm.v1.structured_output import StructuredOutputManager
 from vllm.sampling_params import SamplingParams
 
 logger = init_logger(__name__)
-import logging
-logger_myown = logging.getLogger("my_custom_logger")
-logger_myown.setLevel(logging.INFO)  # or DEBUG if you want more detailed logs
-
-# Create handlers
-file_handler = logging.FileHandler("my_own_vllm_logs.txt")
-
-console_handler = logging.StreamHandler()
-
-# Set formatters and add it to handlers
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-file_handler.setFormatter(formatter)
-console_handler.setFormatter(formatter)
-
-# Add handlers to the logger
-logger_myown.addHandler(file_handler)
-logger_myown.addHandler(console_handler)
 
 class Scheduler(SchedulerInterface):
 
